@@ -9,6 +9,9 @@ class XmlDataFormatter:
         if not vehicle_data['Transaction']['Customer'].get('Units'):
             return formatted_data
 
+        if not isinstance(vehicle_data['Transaction']['Customer']['Units']['Auto']['Vehicle'], list):
+            vehicle_data['Transaction']['Customer']['Units']['Auto']['Vehicle'] = [vehicle_data['Transaction']['Customer']['Units']['Auto']['Vehicle']]
+
         for vehicle in vehicle_data['Transaction']['Customer']['Units']['Auto']['Vehicle']:
             formatted_data.append(
                 {
