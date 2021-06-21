@@ -1,5 +1,6 @@
 import csv
 
+from ..parser_format.csv import CsvDataFormatter
 
 
 class CsvParser:
@@ -7,6 +8,7 @@ class CsvParser:
     def __init__(self, parser_files):
         self.parser_file_customer = parser_files[0]
         self.parser_file_vehicles = parser_files[1]
+        self.parser_formatter = CsvDataFormatter()
 
         self.parsed_content_vehicles = []
         self.parsed_content = []
@@ -33,5 +35,5 @@ class CsvParser:
             self.parsed_content.append(line)
 
     def get_content(self):
-        return self.parsed_content
+        return self.parser_formatter.format_data(self.parsed_content)
 
