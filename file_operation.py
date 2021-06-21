@@ -1,3 +1,6 @@
+import glob
+import json
+import time
 
 
 class FileOperation:
@@ -18,3 +21,12 @@ class FileOperation:
 
     def get_content(self):
         return self.files_content
+
+    def save(self, content, format_):
+        files_next_count = len(glob.glob(f"../output/{format_}/*_file*.json")) + 1
+
+        content.update({"file_name": self.files[0]})
+        content.move_to_end('file_name', last=False)
+
+        write_file = self.open_file(f'../output/{format_}/{time.time()}_file{files_next_count}.json', 'w')
+        json.dump(content, write_file, indent=3, separators=(',', ':'))
