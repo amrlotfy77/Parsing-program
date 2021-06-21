@@ -10,7 +10,6 @@ class XmlDataFormatter:
             return formatted_data
 
         for vehicle in vehicle_data['Transaction']['Customer']['Units']['Auto']['Vehicle']:
-            print(vehicle)
             formatted_data.append(
                 {
                     "id": vehicle['@id'],
