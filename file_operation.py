@@ -31,5 +31,5 @@ class FileOperation:
             f_content.update({"file_name": self.files[0]})
             f_content.move_to_end('file_name', last=False)
 
-            write_file = self.open_file(f'{time.time()}_file{files_next_count}.json', 'w')
+            write_file = self.open_file(f'../output/{format_}/{time.time()}_file{files_next_count}.json', 'w')
             json.dump(f_content, write_file, indent=3, separators=(',', ':'))
