@@ -15,4 +15,4 @@ class XmlParser:
         self.parsed_content = xmltodict.parse(self.parser_file.read())
 
     def get_content(self):
-        return self.parser_formatter.format_data(self.parsed_content['Insurance'])
+        return [self.parser_formatter.format_data(self.parsed_content['Insurance'])]

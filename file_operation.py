@@ -22,11 +22,14 @@ class FileOperation:
     def get_content(self):
         return self.files_content
 
-    def save(self, content, format_):
-        files_next_count = len(glob.glob(f"../output/{format_}/*_file*.json")) + 1
+    def save(self, files_content, format_):
 
-        content.update({"file_name": self.files[0]})
-        content.move_to_end('file_name', last=False)
+        for f_content in files_content:
 
-        write_file = self.open_file(f'../output/{format_}/{time.time()}_file{files_next_count}.json', 'w')
-        json.dump(content, write_file, indent=3, separators=(',', ':'))
+            files_next_count = len(glob.glob(f"../output/{format_}/*_file*.json")) + 1
+
+            f_content.update({"file_name": self.files[0]})
+            f_content.move_to_end('file_name', last=False)
+
+            write_file = self.open_file(f'{time.time()}_file{files_next_count}.json', 'w')
+            json.dump(f_content, write_file, indent=3, separators=(',', ':'))
