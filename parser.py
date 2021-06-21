@@ -13,7 +13,6 @@ def main():
     parser = parser_type.get_parser()
 
     parser_files_objects = FileOperation(files)
-    print(parser_files_objects.get_content())
 
 
 if __name__ == '__main__':
