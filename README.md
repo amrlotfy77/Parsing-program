@@ -35,3 +35,16 @@ chmod +x parser.py
 
 ```
 
+run parser.py for xml parsing
+
+```
+./parser.py xml xml/file1.xml 
+
+```
+
+run parser.py for csv parsing
+
+```
+./parser.py csv csv/customers_file1.csv csv/vehicles_file1.csv
+
+```
