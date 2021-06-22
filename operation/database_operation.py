@@ -5,7 +5,7 @@ import urllib
 class Database:
 
     DATABASE = 'trufla'
-    URL = f'mongodb://trufla_admin:P%40ssw0rd@localhost:27017/'
+    URL = f'mongodb://trufla_admin:{urllib.parse.quote("p@ssword")}@localhost:27017/'
 
     def __init__(self):
         self.conn = pymongo.MongoClient(self.URL)
