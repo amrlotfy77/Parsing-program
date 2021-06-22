@@ -2,7 +2,7 @@ import sys
 
 
 from parser.parser_factory import TypeFactory
-from file_operation import FileOperation
+from operation.file_operation import FileOperation
 
 
 def main():
